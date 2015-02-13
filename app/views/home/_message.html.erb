@@ -1,0 +1,46 @@
+
+
+<div class = "text-right" >
+<button type="button" class="btn btn-primary" style = "background-color: #498F8D; border: #498F8D" data-toggle="modal" data-target=".bs-example-modal-lg">Edit</button>
+<button type="button" class="btn btn-danger" style = "background-color: #EB0002; border: #EB0002" data-toggle="modal" data-target= "message" method: :delete, data: { confirm: 'Are you sure?' }>Delete</button>
+</div>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+
+
+    <div class="modal-content">
+
+
+
+      <%= form_for message, html: {class: "form-horizontal"} do |f| %>
+
+      <form class = "form-horizontal">
+
+        <div class= "form-group">
+          <%= f.label :first_name, class: "control-label col-md-2" %>
+          <div class = "form-controls col-md-4">
+            <%= f.text_field :first_name, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class= "form-group">
+          <%= f.label :message, class: "control-label col-md-2" %>
+          <div class = "form-controls col-md-4">
+            <%= f.text_area :message, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class = "form-group">
+          <div class = "col-md-offset-2 col-md-4">
+            <%= f.submit "Create message", class: "btn btn-primary" %>
+            <%= link_to "Cancel", root_path, class: "btn btn-default" %>
+          </div>
+        </div>
+      </form>
+
+      <% end %>
+
+      </div>
+    </div>
+  </div>

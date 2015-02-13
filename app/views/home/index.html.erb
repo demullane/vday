@@ -1,55 +1,19 @@
 <div class="container">
   <h1>LEAVE ME A MESSAGE</h1>
+
+<%= render 'form' %>
+
 <div class="row">
+
+  <% @messages.each do |m| %>
     <div class="col-md-4">
       <div class="well">
-        1 blah blah blah
+        <p><strong>From: <%= m.first_name.capitalize %></strong><br />
+        <%= m.message %></p>
+        <%= render partial: 'message', locals: { message: m } %>
       </div>
     </div>
-   <div class="col-md-4">
-        <div class="well">
-        2 blah blah blah blah blah blah blah blah blah blah blah blahblah blah blah blah blah blah
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="well">
-        3 blah blah blah blah blah blah blah blah h
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="well">
-        blah blah blah blah
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="well">
-          blah blah blah. The container inside the item must be position:relative
-        </div>
-    </div>
-   <div class="col-md-4">
-        <div class="well">
-        blah blah blah blah blah blah blah blah blah blah blah blahblah blah blah blah blah blah
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="well">
-        blah blah blah blah blah blah blah blah h
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="well">
-        blah blah blah blah
-        </div>
-    </div>
-    <div class="item">
-        <div class="well">
-        blah blah blah blah blah blah blah blah blah blah blah blah
-        </div>
-    </div>
-    <div class="item">
-        <div class="well">
-          blah blah blah. The container inside the item must be position:relative
-        </div>
-    </div>
+
+    <% end %>
 </div>
 </div>

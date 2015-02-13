@@ -1,2 +1,45 @@
 @import "bootstrap-sprockets";
-@import "bootstrap"
+@import "bootstrap";
+
+
+
+body {
+  min-height: 2000px;
+  padding-top: 70px;
+}
+
+.jumbotron {
+    margin-bottom: 0px;
+    background-image: url(https://lh6.googleusercontent.com/-xfDEpJYcvUo/VN5MmGWmRmI/AAAAAAAAAb8/Ny4skN7Vlco/w489-h302-no/vday_logo.png);
+    background-size: 40% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    text-shadow: black 0.3em 0.3em 0.3em;
+    height: 350px;
+}
+
+*, *:before, *:after {box-sizing:  border-box !important;}
+
+
+.row {
+ -moz-column-width: 25em;
+ -webkit-column-width: 25em;
+ -moz-column-gap: 1em;
+ -webkit-column-gap:1em;
+
+}
+
+.row > .col-md-4 {
+ display: inline-block;
+ padding: .33rem;
+ width: 100%;
+ float:none;
+}
+
+.well {
+ position:relative;
+ display: block;
+ max-width: 348px;
+
+}

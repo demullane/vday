@@ -1,46 +1,45 @@
 
 
 <div class = "text-right" >
-<button type="button" class="btn btn-primary" style = "background-color: #498F8D; border: #498F8D" data-toggle="modal" data-target=".bs-example-modal-lg">Edit</button>
+<button type="button" class="btn btn-primary" style = "background-color: #498F8D; border: #498F8D" data-toggle="modal" data-target="#edit_message_modal">Edit</button>
 <button type="button" class="btn btn-danger" style = "background-color: #EB0002; border: #EB0002" data-toggle="modal" data-target= "message" method: :delete, data: { confirm: 'Are you sure?' }>Delete</button>
 </div>
 
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-
-
+<div class="modal fade" id = "edit_message_modal" tabindex="-1" role="dialog" aria-labelledby="edit_message_modal_label" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
+      <div class = "modal-header">
+        <button type = "button" class = "close" data-dismiss = "modal" aria-label = "Close"><span aria-hidden = "true">&times;</span></button>
+        <h4 class = "modal-title" id = "edit_message_modal_label">Edit Message</h4>
+      </div>
 
+      <div class = "modal-body">
 
+        <%= form_for message do |f| %>
 
-      <%= form_for message, html: {class: "form-horizontal"} do |f| %>
+          <form>
 
-      <form class = "form-horizontal">
+            <div class= "form-group">
+              <%= f.label :first_name, "First Name", class: "control-label" %>
+              <%= f.text_field :first_name, class: "form-control" %>
+            </div>
 
-        <div class= "form-group">
-          <%= f.label :first_name, class: "control-label col-md-2" %>
-          <div class = "form-controls col-md-4">
-            <%= f.text_field :first_name, class: "form-control" %>
-          </div>
-        </div>
+            <div class= "form-group">
+              <%= f.label :message, class: "control-label" %>
+              <%= f.text_area :message, class: "form-control" %>
+            </div>
 
-        <div class= "form-group">
-          <%= f.label :message, class: "control-label col-md-2" %>
-          <div class = "form-controls col-md-4">
-            <%= f.text_area :message, class: "form-control" %>
-          </div>
-        </div>
+            <div class = "form-group">
+                <%= f.submit class: "btn btn-primary" %>
+                <%= link_to "Cancel", root_path, class: "btn btn-default" %>
+            </div>
 
-        <div class = "form-group">
-          <div class = "col-md-offset-2 col-md-4">
-            <%= f.submit "Create message", class: "btn btn-primary" %>
-            <%= link_to "Cancel", root_path, class: "btn btn-default" %>
-          </div>
-        </div>
-      </form>
+          </form>
 
-      <% end %>
+        <% end %>
 
       </div>
+
     </div>
   </div>
+</div>

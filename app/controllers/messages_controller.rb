@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
 
+  before_action :find_params, only: [:show, :edit, :update, :destroy]
 
   def new
     @message = Message.new
@@ -22,7 +23,6 @@ class MessagesController < ApplicationController
   end
 
   def update
-    @message = Message.find(params[:id])
     if @message.update(message_params)
       redirect_to root_path, notice: "Message was successfully updated."
     else
@@ -32,7 +32,7 @@ class MessagesController < ApplicationController
 
   def destroy
     @message.destroy
-    redirect_to users_path, notice: "Message was successfully destroyed."
+    redirect_to root_path, notice: "Message was successfully destroyed."
   end
 
   private

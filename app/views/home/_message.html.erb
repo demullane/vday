@@ -1,11 +1,11 @@
 
 
 <div class = "text-right" >
-<button type="button" class="btn btn-primary" style = "background-color: #498F8D; border: #498F8D" data-toggle="modal" data-target="#edit_message_modal">Edit</button>
-<%= link_to 'Delete', @message, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Edit',  "edit_message_modal", class: "btn btn-primary", style: "background-color: #498F8D; border: #498F8D", 'data-target' => "##{message.id}", 'data-toggle' => 'modal'  %>
+<%= link_to 'Delete', message, class: "btn btn-danger", style: "background-color: #EB0002; border: #EB0002", method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>
 
-<div class="modal fade" id = "edit_message_modal" tabindex="-1" role="dialog" aria-labelledby="edit_message_modal_label" aria-hidden="true">
+<div class="modal fade" id ="<%= message.id %>", tabindex="-1" role="dialog" aria-labelledby="edit_message_modal_label" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class = "modal-header">

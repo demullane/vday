@@ -81,12 +81,43 @@
         <% end %>
       <% end %>
 
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron"></div>
+      <div class = "row">
+        <div class = "col-md-4 col-md-offset-4">
+          <div class = "well" id = "signin-well-custom">
 
-    <%= yield %>
+            <h2 id = "signup-signin-header">Sign into vDay!</h2>
 
-  </div>
+            <% flash.each do |type, message| %>
+              <% if type == "error" %>
+                <div id = "red-error-text">
+                    <%= flash[:error] %><br />
+                </div>
+                <br />
+              <% end %>
+            <% end %>
+
+            <%= form_tag '/signin' do %>
+
+              <div class = "form-group">
+                <%= label_tag :email, "Email" %>
+                <%= email_field_tag :email, nil, class: "form-control" %>
+              </div>
+              <div class = "form-group">
+                <%= label_tag :password, "Password" %>
+                <%= password_field_tag :password, nil, class: "form-control" %>
+              </div>
+              <div class = "form-group" id = "signup-signin-button">
+                <%= submit_tag "Sign In", class: "btn btn-primary" %>
+              </div>
+
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+      
+
+    </div>
 
 
 
